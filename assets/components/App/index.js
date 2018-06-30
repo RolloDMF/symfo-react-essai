@@ -1,6 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Route, Link } from 'react-router-dom';
+
+import Route1 from '~/components/Route1';
+import Route2 from '~/components/Route2';
 
 import './app.styl';
 
@@ -20,7 +23,7 @@ class App extends React.Component {
         const arrayData = Object.keys(data);
         // pour chaque objet on crée un paragraphe avec pour contenue la data.
         // Et on met tout ceci dans un tableau dataData
-        const dataData = arrayData.map(element => <p key={data[element]}>{data[element]}</p>);
+        const dataData = arrayData.map(element => <li key={data[element]}>{data[element]}</li>);
         // on envois tout a react pour qu'il rafraichie la page avec les données
         this.setState({
           toc: dataData,
@@ -29,34 +32,21 @@ class App extends React.Component {
   }
 
   render() {
-    const {
-      diceFacesNb,
-      randomValue,
-      generateRandomValue,
-    } = this.props;
     return (
       <div>
-        {/* affichage des données (paragraphes) */}
-        version avec route data : {this.state.toc}
-        <h1>{`D${diceFacesNb}`}</h1>
-        <p className="message">
-          {randomValue}
-          <br />
-          <button onClick={generateRandomValue}>Lancer le dé !</button>
-        </p>
+        <h1>Test React - Symfony</h1>
+        <p>Test 1 : Récupération des données sur "/data" au démarrage de la page :</p>
+        <ul>
+          {this.state.toc}
+        </ul>
+        <p>Test 2 : Récupération des données sur une autre route : </p>
+        <Link href="/entity1" to="/entity1" >/data/entity1</Link>
+        <Link href="/entity2" to="/entity2" >/data/entity2</Link>
+        <Route path="/entity1" exact component={Route1} />
+        <Route path="/entity2" exact component={Route2} />
       </div>
     );
   }
 }
-
-App.propTypes = {
-  diceFacesNb: PropTypes.number.isRequired,
-  randomValue: PropTypes.number,
-  generateRandomValue: PropTypes.func.isRequired,
-};
-
-App.defaultProps = {
-  randomValue: 0,
-};
 
 export default App;

@@ -1,10 +1,10 @@
 {
-  "name": "react-modele",
+  "name": "test-react-symfo",
   "version": "0.1.0",
-  "description": "Point de départ des projets React",
+  "description": "Pour tester react et sumfony",
   "main": "index.js",
-  "repository": "git@github.com:O-clock-Hyperspace/React-modele.git",
-  "author": "Jean-Denis Vauguet <jd@vauguet.fr>",
+  "repository": "",
+  "author": "Hyperspace click and send",
   "license": "MIT",
   "private": false,
   "devDependencies": {
@@ -27,14 +27,15 @@
     "stylus": "^0.54.5"
   },
   "dependencies": {
+    "@symfony/webpack-encore": "^0.19.0",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
-    "@symfony/webpack-encore": "^0.19.0"
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0"
   },
   "scripts": {
     "start": "parcel assets/index.html -d public/build --public-url /build/.",
