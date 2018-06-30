@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @Route("/data")
@@ -19,9 +20,11 @@ class DataController extends Controller
     /**
      * @Route("/entity1", name="entity1", methods="GET")
      */
-    public function entity1(DataRepository $dataRepository)
+    public function entity1(DataRepository $dataRepository, SerializerInterface $serializer)
     {
-        return new JsonResponse($dataRepository->findAll());
+        $data = $dataRepository->findAll();
+        $json = $serializer->serialize($data, 'json');
+        return new Response($json);
     }
 
     /**
