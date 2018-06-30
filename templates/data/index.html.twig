@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Data index{% endblock %}
+
+{% block body %}
+    <h1>Data index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Data</th>
+                <th>Nom</th>
+                <th>Donnee</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for data in data %}
+            <tr>
+                <td>{{ data.id }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.data }}</td>
+                <td>{{ data.nom }}</td>
+                <td>{{ data.donnee }}</td>
+                <td>
+                    <a href="{{ path('data_show', {'id': data.id}) }}">show</a>
+                    <a href="{{ path('data_edit', {'id': data.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('data_new') }}">Create new</a>
+{% endblock %}
