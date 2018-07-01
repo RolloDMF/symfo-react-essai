@@ -35,11 +35,12 @@
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "react-transition-group": "^2.4.0",
     "redux": "^4.0.0"
   },
   "scripts": {
     "start": "parcel assets/index.html -d public/build --public-url /build/.",
-    "clean": "rm -rf .cache dist",
+    "clean": "rm -rf .cache public/build",
     "watch": "yarn clean && yarn start",
     "dev-server": "encore dev-server",
     "dev": "encore dev",
