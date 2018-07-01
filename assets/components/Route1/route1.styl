@@ -16,3 +16,28 @@
   &-done 
     opacity 1
     left 0
+.info-box
+  border 1px solid green
+  position absolute
+  margin auto
+  width 100%
+  top 0
+  height 100%
+  display flex
+  transition 0.1s
+  background-color rgba(0, 0, 0, 0.8)
+  &-enter 
+    top -500px
+    &-done
+      top 0
+  &-exit
+    top 0
+    &-active
+      top -500px
+    // &-done
+    //   top -500px
+.info-container
+  border 1px solid green 
+  margin auto
+  background-color white
+  padding 2rem
